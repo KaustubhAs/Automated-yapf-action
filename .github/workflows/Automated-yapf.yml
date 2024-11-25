@@ -19,7 +19,7 @@ jobs:
       #  with:
       #    args: -c "pwd && ls -la"
       - name: Format Python code with YAPF
-        uses: KaustubhAs/automated-yapf-action@main
+        uses: KaustubhAs/automated-yapf-action@v1
         with:
           args: --style pep8 --recursive --in-place .
       - name: Check for modified files
