@@ -8,7 +8,7 @@ inputs:
     default: '--style pep8 --recursive --in-place .'
 outputs:
   exit-code:
-    description: 'Output by autoyapy'
+    description: 'Output by yapy'
 runs:
   using: 'docker'
   image: 'Dockerfile'
