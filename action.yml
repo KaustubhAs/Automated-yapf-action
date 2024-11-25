@@ -1,0 +1,16 @@
+name: 'AutoYAPF'
+author: 'Kaustubh Sonawane'
+description: 'Format Python code using YAPF'
+inputs:
+  args:
+    description: 'Arguments for YAPF'
+    required: false
+    default: '--style pep8 --recursive --in-place .'
+outputs:
+  exit-code:
+    description: 'Output by autoyapy'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.args }}
