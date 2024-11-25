@@ -14,10 +14,10 @@ jobs:
           ref: ${{ github.head_ref }}
       - name: List directory contents
         run: ls -R
-      - name: Debug Docker environment
-        uses: KaustubhAs/automated-yapf-action@main
-        with:
-          args: -c "pwd && ls -la"
+      #- name: Debug Docker environment
+      #  uses: KaustubhAs/automated-yapf-action@main
+      #  with:
+      #    args: -c "pwd && ls -la"
       - name: Format Python code with YAPF
         uses: KaustubhAs/automated-yapf-action@main
         with:
