@@ -1,5 +1,10 @@
 name: Formatting python code
-on: push
+on:
+  push:
+    branches:
+      - main
+      - develop
+
 jobs:
   autoyapf:
     runs-on: ubuntu-latest
