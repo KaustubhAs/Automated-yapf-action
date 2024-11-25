@@ -21,7 +21,7 @@ jobs:
       - name: Format Python code with YAPF
         uses: KaustubhAs/automated-yapf-action@main
         with:
-          args: --style pep8 --in-place $(find . -name "*.py")
+          args: --style pep8 --recursive --in-place .
       - name: Check for modified files
         id: git-check
         run: echo "modified=$(git diff-index --quiet HEAD --; echo $?)" >> $GITHUB_ENV
