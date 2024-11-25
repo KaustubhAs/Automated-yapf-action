@@ -10,5 +10,9 @@ LABEL "com.github.actions.color"="blue"
 # Install YAPF
 RUN pip install yapf
 
-# Set the entrypoint to run YAPF
-ENTRYPOINT ["yapf"]
+# Copy entrypoint script
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
