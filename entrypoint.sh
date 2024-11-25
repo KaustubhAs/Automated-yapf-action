@@ -1,8 +1,8 @@
 #!/bin/sh -l
-set -uo pipefail
+set -euo pipefail
 
-yapf $*
-echo ::set-output name=exit-code::$?
+yapf "$@"
+echo "exit-code=$?" >> $GITHUB_OUTPUT
 
 # # Execute YAPF with all passed arguments
 # yapf "$@"
