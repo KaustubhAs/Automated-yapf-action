@@ -4,8 +4,8 @@ description: 'Format Python code using YAPF'
 inputs:
   args:
     description: 'Arguments for YAPF'
-    required: false
-    default: '--style pep8 --recursive --in-place .'
+    required: true
+    default: '--help'
 outputs:
   exit-code:
     description: 'Output by yapy'
