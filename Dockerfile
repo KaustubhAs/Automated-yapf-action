@@ -8,14 +8,11 @@ LABEL "com.github.actions.icon"="code"
 LABEL "com.github.actions.color"="blue"
 
 # Install YAPF
-RUN pip install yapf
-
-# Install Bash
-RUN apt-get update && apt-get install -y bash
+RUN apt-get update && apt-get install -y bash && pip install yapf 
 
 # Copy entrypoint script
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 # Set the entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/bin/bash","/entrypoint.sh"]
