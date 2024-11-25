@@ -1,9 +1,8 @@
 name: Formatting python code
 on:
   push:
-    branches:
-      - main
-      - develop
+    paths:
+    - '**.py'
 
 jobs:
   autoyapf:
