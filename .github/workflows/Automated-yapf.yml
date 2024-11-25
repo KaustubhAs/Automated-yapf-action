@@ -1,0 +1,24 @@
+name: Formatting python code
+on: push
+jobs:
+  autoyapf:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@main
+        with:
+          ref: ${{ github.head_ref }}
+      - name: Format Python code with YAPF
+        uses: KaustubhAs/automated-yapf-action@main
+        with:
+          args: --style pep8 --recursive --in-place .
+      - name: Check for modified files
+        id: git-check
+        run: echo "modified=$(git diff-index --quiet HEAD --; echo $?)" >> $GITHUB_ENV
+      - name: Push changes
+        if: env.modified != '0'
+        run: |
+          git config --global user.name 'kaustubhAS' 
+          git config --global user.email 'kaustubhsonawane13@gmail.com' 
+          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
+          git commit -am "Automated yapf fixes"
+          git push
