@@ -1,11 +1,8 @@
 #!/bin/bash
-set -e
+# Execute YAPF with all passed arguments
+yapf "$@"
 
-if [ "$1" = "-c" ]; then
-    # If the first argument is -c, run the command
-    shift
-    exec "$@"
-else
-    # Otherwise, run YAPF with the provided arguments
-    exec yapf "$@"
-fi
+# Capture exit code and set it as output
+exit_code=$?
+echo "exit-code=$exit_code" >> $GITHUB_ENV
+exit $exit_code
